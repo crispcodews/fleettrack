@@ -18,10 +18,10 @@ function Dashboard() {
       </div>
 
       <div className="stats-grid">
-        <StatsCard title="Total Trucks" value="48" />
-        <StatsCard title="Active Deliveries" value={deliveries.length} />
-        <StatsCard title="Drivers On Duty" value="34" />
-        <StatsCard title="Maintenance Alerts" value="3"/>
+        <StatsCard title="Total Trucks" value="48" icon="🚛" color="#f97316" />
+        <StatsCard title="Active Deliveries" value={deliveries.length}  icon="📦" color="#3b82f6" />
+        <StatsCard title="Drivers On Duty" value="34" icon="👤" color="#22c55e" />
+        <StatsCard title="Maintenance Alerts" value="3" icon="⚠️" color="#ef4444" />
       </div>
 
       <DeliveryTable deliveries={deliveries} setDeliveries={setDeliveries} />
