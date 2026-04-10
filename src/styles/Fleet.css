@@ -1,0 +1,112 @@
+.fleet-container {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.fleet-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #111827;
+}
+
+.fleet-header p {
+    margin: 5px 0;
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+.fleet-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 5px;
+}
+
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.truck-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.truck-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.truck-card-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #111827;
+}
+
+.truck-card-body {
+    padding: 15px 20px;
+}
+
+.truck-card-body p {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color: #374151;
+}
+
+.label {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85;
+    font-weight: 600;
+}
+
+.status-active {
+    background-color: #d1fae5;
+    color: #059669;
+}
+
+.status-service {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.status-retired {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
