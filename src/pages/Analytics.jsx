@@ -1,23 +1,24 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, PieChart, Pie, Cell, Legend, ResponsiveContainer } from 'recharts';
 
-const deliveryData = [
-    { driver: "Sarah Lee", deliveries: 8 },
-    { driver: "Mike Chen", deliveries: 12 },
-    { driver: "Carlos Diaz", deliveries: 5 },
-    { driver: "Jessica Williams", deliveries: 10 },
-    { driver: "David Martinez", deliveries: 3 },
-    { driver: "Emily Johnson", deliveries: 9 },
-];
-
-const statusData = [
-    { name: "Delivered", value: 21 },
-    { name: "In Transit", value: 12 },
-    { name: "Delayed", value: 5 },
-];
-
 const COLORS = ["#22c55e", "#f97316", "#ef4444"];
 
-function Analytics() {
+function Analytics({ deliveries}) {
+    
+    const statusData = [
+        { name: "Delivered", value: deliveries.filter(d => d.status === "Delivered").length},
+        { name: "In Transit", value: deliveries.filter(d => d.status === "In Transit").length },
+        { name: "Delayed", value: deliveries.filter(d => d.status === "Delayed").length },
+    ];
+
+    const driverData = deliveries.reduce((acc, delivery) => {
+        const existing = acc.find(item => item.driver === delivery.driver);
+        if(existing) {
+            existing.deliveries += 1;
+        } else {
+            acc.push({ driver: delivery.driver, deliveries: 1});
+        }
+        return acc;
+    }, []);
     return (
         <div style={{ padding: "20px", maxWidth: "1400px", margin: "0 auto" }}>
             <div style={{ marginBottom: "30px" }}>
@@ -30,7 +31,7 @@ function Analytics() {
                 <div style={{ background: "white", borderRadius: "10px", padding: "20px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ marginTop: 0, color: "#111827" }}>Deliveries by Driver</h2>
                     <ResponsiveContainer width="100%" height={300}>
-                        <BarChart data={deliveryData}>
+                        <BarChart data={driverData}>
                             <XAxis dataKey="driver" tick={{ fontSize: 11 }} />
                             <YAxis />
                             <Tooltip />

@@ -185,3 +185,62 @@
     border-radius: 8px;
     font-size: 1rem;
 }
+
+.driver-details {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.drivers-details-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f3f4f6;
+    background: #f9fafb;
+}
+
+.driver-details-header h2 {
+    margin: 0;
+    color: #111827;
+    font-size: 1.2rem;
+}
+
+.driver-details-body {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.details-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+
+.detail-label {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.close-btn {
+    padding: 6px 16px;
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background: #fecaca;
+}

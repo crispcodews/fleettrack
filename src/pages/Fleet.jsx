@@ -34,7 +34,7 @@ function Fleet() {
     {
       id: 5,
       truckId: "T-556",
-      status: "Retired",
+      status: "PTO",
       driver: "David Martinez",
       lastMaintenance: "2023-12-10",
     },
@@ -50,7 +50,7 @@ function Fleet() {
   function getStatusClass(status) {
     if (status === "Active") return "status-active";
     if (status === "In Service") return "status-service";
-    return "status-retired";
+    return "status-pto";
   }
 
   return (
@@ -75,9 +75,9 @@ function Fleet() {
         </div>
         <div className="stat-box">
           <span className="stat-number">
-            {trucks.filter((t) => t.status === "Retired").length}
+            {trucks.filter((t) => t.status === "PTO").length}
           </span>
-          <span className="stat-label">Retired</span>
+          <span className="stat-label">PTO</span>
         </div>
         <div className="stat-box">
           <span className="stat-number">{trucks.length}</span>
