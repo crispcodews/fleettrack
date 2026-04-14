@@ -1,7 +1,11 @@
-
 import "../styles/Fleet.css";
 
+/* Displays a read-only overview of all trucks in the fleet.
+Shows live status counts and card grid with per-truck details.
+TODO: trucks is currently hardcoded - connect to real data source when available.
+ */
 function Fleet() {
+  // Hardcoded truck data - each entry mirrors the driver roster in Drivers.jsx
   const trucks = [
     {
       id: 1,
@@ -45,8 +49,12 @@ function Fleet() {
       driver: "Emily Johnson",
       lastMaintenance: "2024-03-30",
     },
-];
+  ];
 
+  /* Returns the appropriate CSS class for a truck status badge.
+  @param {string} status - "Active", "In Service", or "PTO"
+  @returns {string} CSS class name
+   */
   function getStatusClass(status) {
     if (status === "Active") return "status-active";
     if (status === "In Service") return "status-service";
@@ -55,11 +63,13 @@ function Fleet() {
 
   return (
     <div className="fleet-container">
+      {/* Page header */}
       <div className="fleet-header">
         <h1>Fleet Management</h1>
         <p>Overview of all trucks in your fleet</p>
       </div>
 
+      {/* Live status summary - counts from trucks array */}
       <div className="fleet-stats">
         <div className="stat-box">
           <span className="stat-number">
@@ -85,14 +95,15 @@ function Fleet() {
         </div>
       </div>
 
+      {/* Truck card grid - one card per truck */}
       <div className="fleet-grid">
         {trucks.map((truck) => (
           <div key={truck.id} className="truck-card">
             <div className="truck-card-header">
               <h2>{truck.truckId}</h2>
-              <span
-                className={`status-badge ${getStatusClass(truck.status)}`}
-              ></span>
+              <span className={`status-badge ${getStatusClass(truck.status)}`}>
+                {truck.status}
+              </span>
             </div>
             <div className="truck-card-body">
               <p>
