@@ -1,28 +1,34 @@
+/* Outer page wrapper - centers content and caps width on large screens */
 .dashboard-container {
-    padding: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
+/* Header */
 .dashboard-header {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .dashboard-header h1 {
-    margin: 0;
-    font-size: 2rem;
-    color: #111827;
+  margin: 0;
+  font-size: 2rem;
+  color: #111827; /* Near-black - matches app-wide heading color */
 }
 
 .dashboard-header p {
-    margin: 5px 0;
-    color: #4b5563;
-    font-size: 1.1rem;
+  margin: 5px 0;
+  color: #4b5563; /* Muted gray for subtitle text*/
+  font-size: 1.1rem;
 }
 
+/* Flex row of StatsCard components.
+Flex-wrap allows cards to stack on smaller screens.
+Each card uses flex: 1 internally to fill avaliable space evenly.
+*/
 .stats-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: 30px 0 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px 0 40px 0;
 }

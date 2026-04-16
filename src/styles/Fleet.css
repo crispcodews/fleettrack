@@ -1,112 +1,129 @@
+/* Outer page wrapper - centers content and caps width on large screens */
 .fleet-container {
-    padding: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
+/* Header */
 .fleet-header h1 {
-    margin: 0;
-    font-size: 2rem;
-    color: #111827;
+  margin: 0;
+  font-size: 2rem;
+  color: #111827; /* Near-black - matches app-wide heading color */
 }
 
 .fleet-header p {
-    margin: 5px 0;
-    color: #6b7280;
-    font-size: 1.1rem;
+  margin: 5px 0;
+  color: #6b7280; /* Muted gray for subtle text */
+  font-size: 1.1rem;
 }
 
+/* Status summary boxes.
+Responsive grid of stat boxes above the truck cards.
+auto-fit + minmax allows boxes to reflow into fewer columns on small screens
+*/
 .fleet-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
 .stat-box {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  text-align: center;
 }
 
+/* dispaly: block stacks number and label vertically inside the stat box */
 .stat-number {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #111827;
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
 }
 
 .stat-label {
-    display: block;
-    font-size: 0.9rem;
-    color: #6b7280;
-    margin-top: 5px;
+  display: block;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 5px;
 }
 
+/* Truck card grid.
+auto-fill keeps empty grid slots visable if there are fewer cards than columns, unlike auto-fit which would collapse them. */
 .fleet-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
+/* overflow: hidden clips card content to the border-radius */
 .truck-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    overflow: hidden;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
 }
 
+/* Truck card header. 
+Row containing the truck ID and status badge */
 .truck-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid #f3f4f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .truck-card-header h2 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: #111827;
+  margin: 0;
+  font-size: 1.2rem;
+  color: #111827;
 }
 
+/* Truck card body */
 .truck-card-body {
-    padding: 15px 20px;
+  padding: 15px 20px;
 }
 
+/* Each detail row spaces the label and value to opposite ends */
 .truck-card-body p {
-    display: flex;
-    justify-content: space-between;
-    margin: 8px 0;
-    font-size: 0.95rem;
-    color: #374151;
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 0.95rem;
+  color: #374151;
 }
 
 .label {
-    color: #6b7280;
-    font-weight: 500;
+  color: #6b7280; /* Muted gray to visually seperate label from value */
+  font-weight: 500;
 }
 
+/* Status badge.
+Base badge style - color overridden per status below */
 .status-badge {
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.85;
-    font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px; /* Pill shape */
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
+/* Each status pairs a light tinted background with a matching text color */
 .status-active {
-    background-color: #d1fae5;
-    color: #059669;
+  background-color: #d1fae5;
+  color: #059669;
 }
 
 .status-service {
-    background-color: #fef3c7;
-    color: #d97706;
+  background-color: #fef3c7;
+  color: #d97706;
 }
 
 .status-pto {
-    background-color: #fee2e2;
-    color: #dc2626;
+  background-color: #fee2e2;
+  color: #dc2626;
 }
