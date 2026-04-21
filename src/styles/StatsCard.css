@@ -1,33 +1,43 @@
+/* Flex row card used in the dashboard stats grid.
+flex: 1 allows each card to grow and share space evenly within .stats-grid.
+min-width : 200px prevents cards from becoming to narrow before wrapping 
+*/
 .stat-card {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    min-width: 200px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 16px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
+/* Icon badge.
+Colored square badge holding the stat icon.
+Background color and tint are applied inline styles in StatsCard.jsx.
+flex-shrink: 0 prevents the badge from shrinking on narrow screens
+*/
 .stat-card-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
 }
 
 .stat-card-title {
-    margin: 0;
-    color: #6b7280;
-    font-size: 0.9rem;
+  margin: 0;
+  color: #6b7280; /* Muted gray - visually for value below */
+  font-size: 0.9rem;
 }
 
+/* Font color inline style set to match card's color prop */
 .stat-card-value {
-    margin: 4px 0 0 0;
-    font-size: 2rem;
+  margin: 4px 0 0 0;
+  font-size: 2rem;
 }
