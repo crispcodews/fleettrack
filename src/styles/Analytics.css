@@ -1,0 +1,51 @@
+/* Page layout */
+.analytics-container {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header */
+.analytics-header {
+    margin-bottom: 30px;
+}
+
+.analytics-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #111827;
+}
+
+.analytics-header p {
+    margin: 5px 0;
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+/* Chart grid */
+
+/* Two columns on desktop, stacks to one column on mobile */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Chart cards */
+.analytics-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0 ,0 , 0, 0.06);
+}
+
+.analytics-card h2 {
+    margin-top: 0;
+    color: #111827;
+}

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   MdDashboard,
@@ -5,7 +6,10 @@ import {
   MdPerson,
   MdDirectionsCar,
   MdAnalytics,
+  MdMenu,
+  MdClose,
 } from "react-icons/md";
+import "../styles/Sidebar.css";
 
 /* Renders the fixed left-hand navigation panel for the FleetTrack app. 
 Highlights the active route using React Router's current location.
@@ -13,6 +17,7 @@ Highlights the active route using React Router's current location.
 function Sidebar() {
   // useLocation gives the current url path so we can highlight the active link
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   /* Checks if a given route path matches the current URL.
 Used to apply active highlight styles to the matching nav link.
@@ -41,63 +46,77 @@ Used to apply active highlight styles to the matching nav link.
     transition: "all 0.3s ease",
   });
 
+  const navLinks = (
+    <ul style={{ listStyle: " none", padding: 0 }}>
+      <li style={{ marginBottom: " 10px" }}>
+        <Link
+          to="/"
+          style={getLinkStyle("/")}
+          onClick={() => setMenuOpen(false)}
+        >
+          <MdDashboard size={20} /> Dashboard
+        </Link>
+      </li>
+      <li style={{ marginBottom: "10px" }}>
+        <Link
+          to="/deliveries"
+          style={getLinkStyle("/deliveries")}
+          onClick={() => setMenuOpen(false)}
+        >
+          <MdLocalShipping size={20} /> Deliveries
+        </Link>
+      </li>
+      <li style={{ marginBottom: "10px" }}>
+        <Link
+          to="/drivers"
+          style={getLinkStyle("/drivers")}
+          onClick={() => setMenuOpen(false)}
+        >
+          <MdPerson size={20} /> Drivers
+        </Link>
+      </li>
+      <li style={{ marginBottom: "10px" }}>
+        <Link
+          to="/fleet"
+          style={getLinkStyle("/fleet")}
+          onClick={() => setMenuOpen(false)}
+        >
+          <MdDirectionsCar size={20} /> Fleet
+        </Link>
+      </li>
+      <li style={{ marginBottom: "10px" }}>
+        <Link
+          to="/analytics"
+          style={getLinkStyle("/analytics")}
+          onClick={() => setMenuOpen(false)}
+        >
+          <MdAnalytics size={20} /> Analytics
+        </Link>
+      </li>
+    </ul>
+  );
+
   return (
-    //Sidebar container - fixed width, full viewport height
-    <div
-      style={{
-        width: "220px",
-        height: "100vh",
-        background: "#111827",
-        color: "white",
-        padding: "20px",
-      }}
-    >
-      {/* App logo / brand name */}
-      <h2 style={{ marginBottom: "40px" }}>🚛 FleetTrack</h2>
+    <>
+      {/* Hamburger button — only visible on mobile */}
+      <button className="hamburger-btn" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <MdClose size={26} /> : <MdMenu size={26} />}
+      </button>
 
-      {/* Navigation link list */}
-      <ul style={{ listStyle: "none", padding: 0 }}>
-        {/* Dashboard */}
-        <li style={{ marginBottom: "10px" }}>
-          <Link to="/" style={getLinkStyle("/")}>
-            <MdDashboard size={20} />
-            Dashboard
-          </Link>
-        </li>
+      {/* Mobile dropdown menu - shown when menuOpen is true */}
+      {menuOpen && (
+        <div className="sidebar-mobile">
+          <h2 style={{ marginBottom: "20px" }}>🚛 FleetTrack</h2>
+          {navLinks}
+        </div>
+      )}
 
-        {/* Deliveries */}
-        <li style={{ marginBottom: "10px" }}>
-          <Link to="/deliveries" style={getLinkStyle("/deliveries")}>
-            <MdLocalShipping size={20} />
-            Deliveries
-          </Link>
-        </li>
-
-        {/* Drivers */}
-        <li style={{ marginBottom: "10px" }}>
-          <Link to="/drivers" style={getLinkStyle("/drivers")}>
-            <MdPerson size={20} />
-            Drivers
-          </Link>
-        </li>
-
-        {/* Fleet */}
-        <li style={{ marginBottom: "10px" }}>
-          <Link to="/fleet" style={getLinkStyle("/fleet")}>
-            <MdDirectionsCar size={20} />
-            Fleet
-          </Link>
-        </li>
-
-        {/* Analytics */}
-        <li style={{ marginBottom: "10px" }}>
-          <Link to="/analytics" style={getLinkStyle("/analytics")}>
-            <MdAnalytics size={20} />
-            Analytics
-          </Link>
-        </li>
-      </ul>
-    </div>
+      {/* Desktop sidebar - always visible on screens 768px and wider */}
+      <div className="sidebar-desktop">
+        <h2 style={{ marginBottom: "40px" }}>🚛 FleetTrack</h2>
+        {navLinks}
+      </div>
+    </>
   );
 }
 

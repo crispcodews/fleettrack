@@ -101,3 +101,26 @@ rgba background at -20% opacity keeps the badge subtle against white rows.
 .delete-btn:hover {
   background-color: #cc0000;
 }
+
+@media (max-width: 768px) {
+    /* Stack form inputs vertically on mobile */
+    .input-group {
+        flex-direction: column;
+    }
+     
+    /* Full width inputs when stacked */
+    .input-group input,
+    .input-group select {
+        width: 100%;
+    }
+
+    /* Full width search bar on mobile */
+    .search-input {
+        width: 100%
+    }
+
+    /* Allow table to scroll horizontally on small screens */
+    .delivery-table-container {
+        overflow-x: auto;
+    }
+}

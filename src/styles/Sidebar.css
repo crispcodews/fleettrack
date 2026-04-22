@@ -1,0 +1,51 @@
+/* Only visible on mobile - hidden on desktop */
+.hamburger-btn {
+    display: flex;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 1000;
+    background: #111827;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+/* Full-width dropdown nav shown when hamburger is toggled */
+.side-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #111827;
+    color: white;
+    padding: 60px 20px 20px 20px; /* Top padding clears the hamburger button */
+    z-index: 999;
+}
+
+/* Desktop sidebar is hidden on mobile */
+.side-desktop {
+    display: none;
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+    /* Hide hamburger and mobile menu on desktop */
+    .hamburger-btn, 
+    .sidebar-mobile {
+        display: none; 
+    }
+
+    /* Show the permanent sidebar on desktop */
+    .sidebar-desktop {
+        display: block;
+        width: 220px;
+        min-height: 100vh;
+        background: #111827;
+        color: white;
+        padding: 20px;
+        flex-shrink: 0; /* Prevents sidebar from shrinking in the flex layout */
+    }
+}
