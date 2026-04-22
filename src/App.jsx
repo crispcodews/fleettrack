@@ -6,7 +6,7 @@ import Deliveries from "./pages/Deliveries";
 import Drivers from "./pages/Drivers";
 import Fleet from "./pages/Fleet";
 import Analytics from "./pages/Analytics";
-import "./App.css";
+
 
 /* App component 
 Root component of the Fleetrack application.
