@@ -23,11 +23,22 @@
     color: white;
     padding: 60px 20px 20px 20px; /* Top padding clears the hamburger button */
     z-index: 999;
+    box-sizing: border-box;
+    min-height: 100vh;
+    overflow-y: auto;
 }
 
 /* Desktop sidebar is hidden on mobile */
-.side-desktop {
+.sidebar-desktop {
     display: none;
+    width: 260px;
+    height: 100vh;
+    background-color: #1e293b;
+    color: white;
+    padding: 24px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    flex-shrink: 0;
 }
 
 /* Desktop layout */
@@ -42,10 +53,6 @@
     .sidebar-desktop {
         display: block;
         width: 220px;
-        min-height: 100vh;
-        background: #111827;
-        color: white;
-        padding: 20px;
-        flex-shrink: 0; /* Prevents sidebar from shrinking in the flex layout */
     }
 }
+
