@@ -37,6 +37,10 @@ Each card uses flex: 1 internally to fill avaliable space evenly.
 
 @media (max-width: 767px) {
   .dashboard-header {
-    padding-left: 60px;
+    padding: 16px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.5rem;
   }
 }
