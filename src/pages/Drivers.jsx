@@ -215,6 +215,7 @@ function Drivers() {
       )}
 
       {/* Drivers table - rendered from filteredDrivers, not the full drivers array */}
+      <div className="drivers-table-wrapper">
       <table className="drivers-table">
         <thead>
           <tr>
@@ -253,6 +254,7 @@ function Drivers() {
           ))}
         </tbody>
       </table>
+      </div>
 
       {/* Driver details panel - shown when a row's View button is clicked */}
       {selectedDriver && (

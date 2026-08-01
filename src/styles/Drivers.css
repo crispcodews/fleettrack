@@ -271,3 +271,24 @@ flex-wrap allows form fields to reflow to a new line on smaller screens, rather 
 .close-btn:hover {
   background: #fecaca;
 }
+
+.drivers-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.drivers-table {
+  min-width: 650px;
+  box-shadow: none;
+}
+
+@media (max-width: 767px) {
+  .drivers-controls {
+    flex-direction: column;
+  }
+  .add-driver-btn {
+    width: 100%;
+  }
+}
