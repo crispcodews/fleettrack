@@ -1,58 +1,61 @@
-/* Only visible on mobile - hidden on desktop */
-.hamburger-btn {
-    display: flex;
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 1000;
-    background: #111827;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 8px;
-    cursor: pointer;
-}
-
-/* Full-width dropdown nav shown when hamburger is toggled */
-.side-mobile {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #111827;
-    color: white;
-    padding: 60px 20px 20px 20px; /* Top padding clears the hamburger button */
-    z-index: 999;
-    box-sizing: border-box;
-    min-height: 100vh;
-    overflow-y: auto;
-}
-
-/* Desktop sidebar is hidden on mobile */
+/* --- Desktop sidebar --- */
 .sidebar-desktop {
-    display: none;
-    width: 260px;
-    height: 100vh;
-    background-color: #1e293b;
-    color: white;
-    padding: 24px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    flex-shrink: 0;
+  display: none;
+  width: 260px;
+  height: 100vh;
+  background-color: #1e293b;
+  color: white;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  flex-shrink: 0;
 }
 
-/* Desktop layout */
+/* --- Mobile bottom tab bar --- */
+.bottom-nav {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1e293b;
+  padding: 6px 4px;
+  box-sizing: border-box;
+  z-index: 1000;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bottom-nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 6px 2px;
+  color: #94a3b8; /* muted gray for inactive */
+  text-decoration: none;
+  font-size: 11px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.bottom-nav-item span {
+  white-space: nowrap;
+}
+
+.bottom-nav-item.active {
+  color: #f97316; /* orange to match active desktop highlight */
+  font-weight: 600;
+}
+
+/* --- Desktop layout: show sidebar, hide bottom bar --- */
 @media (min-width: 768px) {
-    /* Hide hamburger and mobile menu on desktop */
-    .hamburger-btn, 
-    .sidebar-mobile {
-        display: none; 
-    }
+  .sidebar-desktop {
+    display: block;
+  }
 
-    /* Show the permanent sidebar on desktop */
-    .sidebar-desktop {
-        display: block;
-        width: 220px;
-    }
+  .bottom-nav {
+    display: none;
+  }
 }
-

@@ -44,10 +44,11 @@ function App() {
     // BrowserRouter enables client-side routing throughout the app
     <BrowserRouter>
       {/* Outer flex row - Sidebar on the left, page content fills the rest */}
-      <div style={{ display: "flex"}} className="app-layout">
+      <div style={{ display: "flex" }} className="app-layout">
         <Sidebar />
         {/* Main content area - renders the active route, light gray background */}
         <div
+          className="main-content"
           style={{ flex: 1, backgroundColor: "#f5f5f5", minHeight: "100vh" }}
         >
           <Routes>
