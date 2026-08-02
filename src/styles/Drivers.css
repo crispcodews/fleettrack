@@ -285,10 +285,47 @@ flex-wrap allows form fields to reflow to a new line on smaller screens, rather 
 }
 
 @media (max-width: 767px) {
+  .drivers-container {
+    padding: 10px;
+    box-sizing: border-box; /* Ensures padding is calculated inside width */
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Stack search bar and add button vertically */
   .drivers-controls {
     flex-direction: column;
   }
+
   .add-driver-btn {
     width: 100%;
+  }
+
+  /* Form Field Wrapping */
+  .add-driver-form {
+    flex-direction: column; /* Force fields to stack vertically on mobile */
+  }
+
+  .add-driver-form input,
+  .add-driver-form select {
+    width: 100%; /* Match the parent form width */
+    box-sizing: border-box;
+  }
+
+  /* Stat Boxes layout */
+  .drivers-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Details Panel Header wrapping */
+  .driver-details-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .driver-details-body {
+    grid-template-columns: 1fr;
   }
 }

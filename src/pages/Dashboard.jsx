@@ -39,7 +39,9 @@ function Dashboard({ deliveries, setDeliveries }) {
       </div>
 
       {/* Delivery table - recieves full deliveries state and setter for add/delete */}
-      <DeliveryTable deliveries={deliveries} setDeliveries={setDeliveries} />
+      <div className="dashboard-table-wrapper">
+        <DeliveryTable deliveries={deliveries} setDeliveries={setDeliveries} />
+      </div>
     </div>
   );
 }

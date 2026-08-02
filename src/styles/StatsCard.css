@@ -12,6 +12,7 @@ min-width : 200px prevents cards from becoming to narrow before wrapping
   display: flex;
   align-items: center;
   gap: 16px;
+  box-sizing: border-box;
 }
 
 /* Icon badge.
@@ -40,4 +41,30 @@ flex-shrink: 0 prevents the badge from shrinking on narrow screens
 .stat-card-value {
   margin: 4px 0 0 0;
   font-size: 2rem;
+}
+
+@media (max-width: 767px) {
+  /* Targeting the card inside the grid gives this rule higher specificity */
+  .stats-grid .stat-card {
+    min-width: 0;
+    width: 100%;
+    padding: 12px;
+    gap: 8px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    flex: none; /* Disables desktop flex growth behavior */
+  }
+
+  .stats-grid .stat-card-title {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+
+  .stats-grid .stat-card-value {
+    font-size: 1.4rem;
+    margin: 2px 0 0 0;
+  }
 }
